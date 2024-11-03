@@ -34,6 +34,8 @@ First of all clone the GitHub Repository to your IDE (VSCode for example).
 
 And after that, [set up yout enviroment](https://docs.expo.dev/get-started/set-up-your-environment/?platform=android&device=simulated) using Android Studio API 35 and Android version v15 (VanillaIceCream). 
 
+Everything should be done. Now start the application running following command on your VSCode Terminal
+
 ```bash
   docker compose up
 ```
