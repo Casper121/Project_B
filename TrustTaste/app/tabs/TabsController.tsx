@@ -5,6 +5,7 @@ import { BottomNavigation, BottomNavigationTab, Icon, IconElement, Layout, Text 
 import CameraIcon from '../atoms/icons/camera';
 import { FirstPage } from './pages/FirstPage';
 import { SecondPage } from './pages/SecondPage';
+import { CameraManager } from './pages/camera/CameraManager';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -13,6 +14,7 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ navigation, state }) => (
     selectedIndex={state.index}
     onSelect={index => navigation.navigate(state.routeNames[index])}>
     <BottomNavigationTab title='USERS'/>
+    <BottomNavigationTab title='CAMERA'/>
     <BottomNavigationTab title='ORDERS'/>
   </BottomNavigation>
 );
@@ -20,6 +22,7 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ navigation, state }) => (
 const TabNavigator = () => (
   <Navigator tabBar={props => <BottomTabBar {...props} />}>
     <Screen name='First Page' component={FirstPage}/>
+    <Screen name='Camera' component={CameraManager}/>
     <Screen name='Second Page' component={SecondPage}/>
   </Navigator>
 );
