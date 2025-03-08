@@ -2,7 +2,6 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigation, BottomNavigationTab, Icon, IconElement, Layout, Text } from '@ui-kitten/components';
-import CameraIcon from '../atoms/icons/camera';
 import { FirstPage } from './pages/FirstPage';
 import { SecondPage } from './pages/SecondPage';
 import { CameraManager } from './pages/camera/CameraManager';
@@ -14,7 +13,7 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ navigation, state }) => (
     selectedIndex={state.index}
     onSelect={index => navigation.navigate(state.routeNames[index])}>
     <BottomNavigationTab title='USERS'/>
-    <BottomNavigationTab title='CAMERA'/>
+    <BottomNavigationTab icon={<Icon name="camera-outline"/>} />
     <BottomNavigationTab title='ORDERS'/>
   </BottomNavigation>
 );

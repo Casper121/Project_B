@@ -1,12 +1,16 @@
 import React from 'react';
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
+import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { TabsController } from './tabs/TabsController';
+import { EvaIconsPack } from '@ui-kitten/eva-icons'
 
 export default () => {
   return (
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <TabsController />
-    </ApplicationProvider>
+    <>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider {...eva} theme={eva.light}>
+        <TabsController />
+      </ApplicationProvider>
+    </>
   );
 };
