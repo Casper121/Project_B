@@ -1,8 +1,8 @@
-import { CameraView, CameraType, useCameraPermissions, Camera } from 'expo-camera';
+import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-export const CameraManager = () => {
+const CameraManager = () => {
   const [facing, setFacing] = useState<CameraType>('back');
   const [scanned, setScanned] = useState(false);
   const [permission, requestPermission] = useCameraPermissions();
@@ -10,7 +10,6 @@ export const CameraManager = () => {
   const handleBarCodeScanned = ({ type, data }: { type: string; data: string }) => {
     if (type === "ean13" || type === "ean8") {
       setScanned(true);
-      //change to return
       console.log(data);
     }
   };
@@ -23,7 +22,7 @@ export const CameraManager = () => {
     return (
       <View style={styles.container}>
         <Text style={styles.message}>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title="grant permission" />
+        <Button onPress={requestPermission} title="Grant permission" />
       </View>
     );
   }
@@ -38,12 +37,13 @@ export const CameraManager = () => {
         }}
         onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
       >
-        <View style={styles.buttonContainer}/>
+        <View style={styles.buttonContainer} />
       </CameraView>
     </View>
   );
-}
+};
 
+// ✅ Hier ist das fehlende `styles`-Objekt:
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -73,3 +73,5 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+export default CameraManager;

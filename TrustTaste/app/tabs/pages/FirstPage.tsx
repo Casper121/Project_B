@@ -5,3 +5,5 @@ export const FirstPage = () => (
       <Text category='h1'>First Page</Text>
     </Layout>
 );
+
+export default FirstPage;
