@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/components';
 import FirstPage from './pages/FirstPage';
-import SecondPage from './pages/SecondPage';
+import Settings from './pages/Settings';
 import CameraManager from './pages/camera/CameraManager';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
@@ -24,7 +24,7 @@ const TabsController = () => {
     <Tab.Navigator>
       <Tab.Screen name="First Page" component={FirstPage} />
       <Tab.Screen name="Camera" component={CameraManager} />
-      <Tab.Screen name="Second Page" component={SecondPage} />
+      <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
 };
