@@ -26,7 +26,7 @@ const App = () => {
     };
     checkIfFirstLaunch();
   }, []);
-
+  
   if (firstLaunch === null) return null; // Ladezustand abwarten
 
   return (
