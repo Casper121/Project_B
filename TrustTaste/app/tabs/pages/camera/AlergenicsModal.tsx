@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     height: '10%',
-    backgroundColor: '#67e56e',
+    backgroundColor: '#2FC916',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     paddingHorizontal: 20,
