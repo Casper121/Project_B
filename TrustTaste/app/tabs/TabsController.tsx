@@ -34,7 +34,7 @@ const TabNavigator = () => (
 
 // 👇 hier wird dein Stack definiert: Tabs + zusätzliche Screens
 const TabsController = () => (
-  <Stack.Navigator screenOptions={{ headerShown: true }}>
+  <Stack.Navigator screenOptions={{ headerShown: true, headerStyle: {backgroundColor: '#2FC916'}, headerTintColor: '#fff', headerTitleAlign: 'center', }}>
     <Stack.Screen name="MainTabs" component={TabNavigator} options={{headerShown: false}}/>
     <Stack.Screen name="DietaryProfile" component={DietaryProfile} options={{ title: 'Edit Profile'}}/>
   </Stack.Navigator>
