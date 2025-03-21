@@ -1,17 +1,25 @@
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import AlergenicsModal from './AlergenicsModal';
 
 const CameraManager = () => {
-  const [facing, setFacing] = useState<CameraType>('back');
+
   const [scanned, setScanned] = useState(false);
   const [permission, requestPermission] = useCameraPermissions();
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   const handleBarCodeScanned = ({ type, data }: { type: string; data: string }) => {
     if (type === "ean13" || type === "ean8") {
       setScanned(true);
+      setIsModalVisible(true)
       console.log(data);
     }
+  };
+
+  const onModalClose = () => {
+    setIsModalVisible(false);
+    setScanned(false)
   };
 
   if (!permission) {
@@ -31,19 +39,18 @@ const CameraManager = () => {
     <View style={styles.container}>
       <CameraView 
         style={styles.camera} 
-        facing={facing}
         barcodeScannerSettings={{
           barcodeTypes: ['ean13', "ean8"],
         }}
         onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
       >
+        <AlergenicsModal isVisible={isModalVisible} onClose={onModalClose}/>
         <View style={styles.buttonContainer} />
       </CameraView>
     </View>
   );
 };
 
-// ✅ Hier ist das fehlende `styles`-Objekt:
 const styles = StyleSheet.create({
   container: {
     flex: 1,

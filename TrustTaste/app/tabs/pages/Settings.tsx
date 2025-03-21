@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
-export default function Example() {
+export default function Setting() {
   const [form, setForm] = useState({
     darkMode: false,
     emailNotifications: true,
