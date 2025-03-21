@@ -1,7 +1,5 @@
-import { Layout } from "@ui-kitten/components";
 import React, { useState } from 'react';
 import {
-  StyleSheet,
   SafeAreaView,
   ScrollView,
   View,
@@ -9,10 +7,19 @@ import {
   TouchableOpacity,
   Switch,
   Image,
+  StyleSheet,
 } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../types';
 
-export default function Setting() {
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
+export default function Settings() {
+  const navigation = useNavigation<NavigationProp>();
+
   const [form, setForm] = useState({
     darkMode: false,
     emailNotifications: true,
@@ -22,22 +29,17 @@ export default function Setting() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <View style={styles.profile}>
-        <TouchableOpacity
-          onPress={() => {
-            // handle onPress
-          }}>
+        <TouchableOpacity onPress={() => {}}>
           <View style={styles.profileAvatarWrapper}>
             <Image
               alt=""
               source={{
-                uri: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80',
+                uri: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d',
               }}
-              style={styles.profileAvatar} />
+              style={styles.profileAvatar}
+            />
 
-            <TouchableOpacity
-              onPress={() => {
-                // handle onPress
-              }}>
+            <TouchableOpacity onPress={() => {}}>
               <View style={styles.profileAction}>
                 <FeatherIcon color="#fff" name="edit-3" size={15} />
               </View>
@@ -47,10 +49,7 @@ export default function Setting() {
 
         <View>
           <Text style={styles.profileName}>John Doe</Text>
-
-          <Text style={styles.profileAddress}>
-            123 Maple Street. Anytown, PA 17101
-          </Text>
+          <Text style={styles.profileAddress}>123 Maple Street. Anytown, PA 17101</Text>
         </View>
       </View>
 
@@ -58,152 +57,94 @@ export default function Setting() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Preferences</Text>
 
-          <TouchableOpacity
-            onPress={() => {
-              // handle onPress
-            }}
-            style={styles.row}>
+          <TouchableOpacity onPress={() => {}} style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#fe9400' }]}>
               <FeatherIcon color="#fff" name="globe" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Language</Text>
-
             <View style={styles.rowSpacer} />
-
-            <FeatherIcon
-              color="#C6C6C6"
-              name="chevron-right"
-              size={20} />
+            <FeatherIcon color="#C6C6C6" name="chevron-right" size={20} />
           </TouchableOpacity>
 
           <View style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#007afe' }]}>
               <FeatherIcon color="#fff" name="moon" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Dark Mode</Text>
-
             <View style={styles.rowSpacer} />
-
             <Switch
               onValueChange={darkMode => setForm({ ...form, darkMode })}
-              value={form.darkMode} />
+              value={form.darkMode}
+            />
           </View>
 
+          {/* 👉 Hier navigierst du zum DietaryProfile */}
           <TouchableOpacity
-            onPress={() => {
-              // handle onPress
-            }}
+            onPress={() => navigation.navigate('DietaryProfile')}
             style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#32c759' }]}>
-              <FeatherIcon
-                color="#fff"
-                name="check-square"
-                size={20} />
+              <FeatherIcon color="#fff" name="check-square" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Edit Dietary Profile</Text>
-
             <View style={styles.rowSpacer} />
-
-            <FeatherIcon
-              color="#C6C6C6"
-              name="chevron-right"
-              size={20} />
+            <FeatherIcon color="#C6C6C6" name="chevron-right" size={20} />
           </TouchableOpacity>
 
           <View style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#38C959' }]}>
               <FeatherIcon color="#fff" name="at-sign" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Email Notifications</Text>
-
             <View style={styles.rowSpacer} />
-
             <Switch
               onValueChange={emailNotifications =>
-                setForm({ ...form, emailNotifications })
-              }
-              value={form.emailNotifications} />
+                setForm({ ...form, emailNotifications })}
+              value={form.emailNotifications}
+            />
           </View>
 
           <View style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#38C959' }]}>
               <FeatherIcon color="#fff" name="bell" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Push Notifications</Text>
-
             <View style={styles.rowSpacer} />
-
             <Switch
               onValueChange={pushNotifications =>
-                setForm({ ...form, pushNotifications })
-              }
-              value={form.pushNotifications} />
+                setForm({ ...form, pushNotifications })}
+              value={form.pushNotifications}
+            />
           </View>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Resources</Text>
 
-          <TouchableOpacity
-            onPress={() => {
-              // handle onPress
-            }}
-            style={styles.row}>
+          <TouchableOpacity onPress={() => {}} style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#8e8d91' }]}>
               <FeatherIcon color="#fff" name="flag" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Report Bug</Text>
-
             <View style={styles.rowSpacer} />
-
-            <FeatherIcon
-              color="#C6C6C6"
-              name="chevron-right"
-              size={20} />
+            <FeatherIcon color="#C6C6C6" name="chevron-right" size={20} />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={() => {
-              // handle onPress
-            }}
-            style={styles.row}>
+          <TouchableOpacity onPress={() => {}} style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#007afe' }]}>
               <FeatherIcon color="#fff" name="mail" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Contact Us</Text>
-
             <View style={styles.rowSpacer} />
-
-            <FeatherIcon
-              color="#C6C6C6"
-              name="chevron-right"
-              size={20} />
+            <FeatherIcon color="#C6C6C6" name="chevron-right" size={20} />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={() => {
-              // handle onPress
-            }}
-            style={styles.row}>
+          <TouchableOpacity onPress={() => {}} style={styles.row}>
             <View style={[styles.rowIcon, { backgroundColor: '#32c759' }]}>
               <FeatherIcon color="#fff" name="star" size={20} />
             </View>
-
             <Text style={styles.rowLabel}>Rate in App Store</Text>
-
             <View style={styles.rowSpacer} />
-
-            <FeatherIcon
-              color="#C6C6C6"
-              name="chevron-right"
-              size={20} />
+            <FeatherIcon color="#C6C6C6" name="chevron-right" size={20} />
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -212,7 +153,6 @@ export default function Setting() {
 }
 
 const styles = StyleSheet.create({
-  /** Profile */
   profile: {
     padding: 24,
     backgroundColor: '#fff',
@@ -252,7 +192,6 @@ const styles = StyleSheet.create({
     color: '#989898',
     textAlign: 'center',
   },
-  /** Section */
   section: {
     paddingHorizontal: 24,
   },
@@ -264,7 +203,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 1.1,
   },
-  /** Row */
   row: {
     flexDirection: 'row',
     alignItems: 'center',
