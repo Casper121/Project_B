@@ -5,6 +5,9 @@ import  TabsController from './tabs/TabsController';
 import { EvaIconsPack } from '@ui-kitten/eva-icons'
 import StartPage from './onboarding/StartPage';
 
+import supabase from "./config/supabaseClient"
+import { API_HOST } from "@env";
+
 export default () => {
   return (
     <>

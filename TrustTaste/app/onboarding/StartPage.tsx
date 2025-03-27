@@ -1,6 +1,8 @@
 import { Button } from "@ui-kitten/components"
 import { StyleSheet, Image, View } from "react-native";
 
+import React from 'react';
+
 const StartPage = () => {
     const icon = require('../../assets/images/logo.png')
     return (
