@@ -1,28 +1,19 @@
 import { Button } from "@ui-kitten/components"
 import { StyleSheet, Image, View } from "react-native";
-import Login from "./Login";
-import { useRouter } from "expo-router";
 
 import React from 'react';
-import supabase from "../config/supabaseClient";
-import { useFetchData } from "./hooks/useSupabaseTable";
 
 const StartPage = () => {
-
-  const router = useRouter();
-  const icon = require('../../assets/images/logo.png')
-  const data = useFetchData("allergies")
-  console.log(data)
-  
+    const icon = require('../../assets/images/logo.png')
     return (
         <View style={styles.layout}>
             <Image style={styles.icon} source={icon}/>
-            <View style={styles.buttonContainer}>
+           <View style={styles.buttonContainer}>
                 <View style={styles.buttonWrapper}>
-                    <Button onPress={() => router.navigate("/onboarding/Login")} style={styles.button}>Login</Button>
+                    <Button style={styles.button}>Login</Button>
                 </View>
                 <View style={styles.buttonWrapper}>
-                    <Button style={styles.button} onPress={() => router.navigate("/onboarding/Register")}>Register</Button>
+                    <Button style={styles.button}>Register</Button>
                 </View>
             </View>
         </View>
