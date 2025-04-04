@@ -3,9 +3,11 @@
     "",
     "\\TrustTaste",
     "\\TrustTaste\\app",
-    "\\TrustTaste\\app\\onboarding",
+    "\\TrustTaste\\app\\tabs",
+    "\\TrustTaste\\app\\tabs\\pages",
+    "\\TrustTaste\\app\\tabs\\pages\\camera",
     "\\TrustTaste\\assets"
   ],
-  "SelectedNode": "\\TrustTaste\\app\\onboarding\\StartPage.tsx",
+  "SelectedNode": "\\TrustTaste",
   "PreviewInSolutionExplorer": false
 }
